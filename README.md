@@ -31,6 +31,13 @@ O site apresenta:
 
 ## 🧩 Estrutura dos arquivos
 
+---
+
+## 🚀 Como visualizar o projeto
+1. Faça o download ou clone o repositório:
+   ```bash
+   git clone https://github.com/seuusuario/projeto-ong.git
+
 
 ❤️ Agradecimentos
 
