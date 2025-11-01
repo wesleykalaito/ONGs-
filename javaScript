@@ -1,0 +1,66 @@
+// main.js - máscaras simples e comportamento do formulário
+
+// Aplica máscaras simples ao digitar
+function applyMask(input, maskFunc) {
+  input.addEventListener('input', () => {
+    const pos = input.selectionStart;
+    input.value = maskFunc(input.value);
+    input.selectionEnd = pos;
+  });
+}
+
+// Máscaras
+function maskCPF(v){
+  // remove não dígitos
+  v = v.replace(/\D/g,'');
+  v = v.replace(/(\d{3})(\d)/,'$1.$2');
+  v = v.replace(/(\d{3})(\d)/,'$1.$2');
+  v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
+  return v;
+}
+function maskTelefone(v){
+  v = v.replace(/\D/g,'');
+  v = v.replace(/^(\d{2})(\d)/g,'($1) $2');
+  v = v.replace(/(\d{5})(\d)/,'$1-$2');
+  return v;
+}
+function maskCEP(v){
+  v = v.replace(/\D/g,'');
+  v = v.replace(/(\d{5})(\d)/,'$1-$2');
+  return v;
+}
+
+// Busca elementos e aplica máscaras
+document.addEventListener('DOMContentLoaded', () => {
+  const cpf = document.getElementById('cpf');
+  const tel = document.getElementById('telefone');
+  const cep = document.getElementById('cep');
+
+  if(cpf) applyMask(cpf, maskCPF);
+  if(tel) applyMask(tel, maskTelefone);
+  if(cep) applyMask(cep, maskCEP);
+
+  // Form handler: mostra status e usa validação nativa
+  const form = document.getElementById('form-cadastro');
+  const status = document.getElementById('status');
+  if(form){
+    form.addEventListener('submit', (e) => {
+      // impede envio real para fins da entrega (remover action="#" se integrar backend)
+      e.preventDefault();
+
+      // validação nativa: checkValidity
+      if(!form.checkValidity()){
+        // deixa o navegador mostrar mensagens nativas
+        form.reportValidity();
+        status.textContent = 'Corrija os campos em destaque.';
+        status.style.color = 'crimson';
+        return;
+      }
+
+      // Simula envio bem-sucedido
+      status.textContent = 'Cadastro enviado com sucesso! (simulação)';
+      status.style.color = 'green';
+      form.reset();
+    });
+  }
+});
