@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Blog — ONG Ampara</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">ONG Ampara</a>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Notícias e atualizações</h1>
+
+    <section aria-labelledby="posts">
+      <h2 id="posts">Últimos posts</h2>
+
+      <article>
+        <h3><a href="blog-post-1.html">Entrega de cestas básicas - Relato</a></h3>
+        <p class="meta">Publicado em <time datetime="2025-09-01">1 de setembro de 2025</time> por Equipe Ampara</p>
+        <p>Resumo do post com destaque para fotos e depoimentos.</p>
+      </article>
+
+      <article>
+        <h3><a href="blog-post-2.html">Oficinas de inclusão digital</a></h3>
+        <p class="meta">Publicado em <time datetime="2025-08-10">10 de agosto de 2025</time></p>
+        <p>Resumo do post com metas e resultados.</p>
+      </article>
+    </section>
+
+    <aside>
+      <h2>Assine nossa newsletter</h2>
+      <form action="/assinar-news" method="post" aria-label="Assinatura newsletter">
+        <label for="email-news">E-mail</label>
+        <input id="email-news" name="email" type="email" required>
+        <button type="submit">Assinar</button>
+      </form>
+    </aside>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ONG Ampara</p>
+  </footer>
+</body>
+</html>
